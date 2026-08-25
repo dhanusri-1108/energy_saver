@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ name }} — Live AI Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header class="topbar" style="background:{{ accent }}">
+    <div class="topbar__mark">{{ emoji }}</div>
+    <div class="topbar__text">
+      <h1>{{ name }}</h1>
+      <p>{{ tagline }}</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="chat-card">
+      <div class="chat-log" id="chatLog" role="log" aria-live="polite"></div>
+      <form class="chat-input" id="chatForm" autocomplete="off">
+        <input type="text" id="chatInput" placeholder="Ungal kelvi type pannunga…" aria-label="Type your question">
+        <button type="submit" id="sendBtn" style="background:{{ accent }}" aria-label="Send">➤</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    window.BOT_NAME = {{ name|tojson }};
+    window.BOT_TAGLINE = {{ tagline|tojson }};
+    window.BOT_EMOJI = {{ emoji|tojson }};
+  </script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
