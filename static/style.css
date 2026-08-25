@@ -1,0 +1,37 @@
+/* EnergySaver AI — Flask version */
+:root {
+  --accent: #B08900;
+  --paper: #F6F1E4;
+  --paper-dim: #EDE6D3;
+  --ink: #1B1D1B;
+  --ink-soft: #4B5049;
+  --line: rgba(0,0,0,0.12);
+  --font-display: "Teko", sans-serif;
+  --font-body: "Noto Sans", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; min-height:100vh; background:#101312; font-family:var(--font-body); color:var(--ink); }
+
+.topbar { color:#fff; display:flex; align-items:center; gap:14px; padding:16px 22px; }
+.topbar__mark { font-size:30px; width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.18); border-radius:50%; }
+.topbar__text h1 { font-family:var(--font-display); font-weight:600; font-size:26px; margin:0; letter-spacing:0.3px; }
+.topbar__text p { margin:2px 0 0; font-size:12.5px; opacity:0.85; }
+
+.wrap { max-width:640px; margin:0 auto; padding:22px 16px 40px; }
+
+.chat-card {
+  background:var(--paper); border-radius:14px; overflow:hidden;
+  display:flex; flex-direction:column; height:74vh; min-height:460px;
+  border:1px solid var(--line); box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+.chat-log { flex:1; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:12px; }
+.msg { max-width:82%; padding:10px 14px; border-radius:12px; font-size:14.5px; line-height:1.5; white-space:pre-wrap; }
+.msg.bot { align-self:flex-start; background:var(--paper-dim); border:1px solid var(--line); border-bottom-left-radius:3px; }
+.msg.user { align-self:flex-end; background:var(--accent); color:#fff; border-bottom-right-radius:3px; }
+.msg.error { align-self:center; background:#fdecea; color:#7a1f1f; border:1px solid #f3b9b0; font-size:13px; }
+.msg.typing { align-self:flex-start; opacity:0.6; font-style:italic; }
+
+.chat-input { display:flex; gap:10px; padding:14px 16px; border-top:1px solid var(--line); background:#fff; }
+.chat-input input { flex:1; border:1px solid var(--line); border-radius:999px; padding:11px 16px; font-size:14.5px; outline:none; }
+.chat-input input:focus { border-color:var(--accent); }
+#sendBtn { color:#fff; border:none; width:44px; height:44px; border-radius:50%; font-size:17px; cursor:pointer; }
